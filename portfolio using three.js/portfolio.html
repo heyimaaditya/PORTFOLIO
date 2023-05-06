@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>My first three.js app</title>
+    <script src="https://kit.fontawesome.com/3624ddd416.js" crossorigin="anonymous"></script>
+		<style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: black;
+      }
+      h2{
+        color:white;
+        
+        transform: translateX(690px);
+        font-size: 40px;
+        font-family: monospace;
+        margin-top: 80px;
+      }
+      h1{
+        color: white;
+        transform: translateX(630px);
+        font-size: 80px;
+        font-family: monospace;
+        margin-top: 13px;
+
+        
+      }
+      .container{
+        color: white;
+        transform: translateX(715px);
+        font-size: 20px;
+        font-family: monospace;
+        margin-top: 13px;
+      
+      }
+      h4{
+        color: white;
+        transform: translateX(673px);
+        font-size: 20px;
+        font-family: monospace;
+        margin-top: 15px;
+      }
+      #particles-js{
+        width: 100%;
+        height: 100%;
+      }
+      #content{
+        width: 100%;
+        height: 700px;
+        background-color: white;
+        margin-top: -200px;
+      }
+      #square1{
+        width: 170px;
+        height: 130px;
+        background-color: green;
+        margin-left: 200px;
+        transform: translateY(350px);
+      }
+      #square2{
+        width: 170px;
+        height: 130px;
+        background-color: orangered;
+        margin-left: 370px;
+        transform: translateY(220px);
+      }
+      #square3{
+        width: 170px;
+        height: 130px;
+        background-color: skyblue;
+        margin-left: 540px;
+        transform: translateY(90px);
+      }
+      #triangle{
+        width: 0;
+        height: 0;
+        border-bottom:200px solid green;
+        border-left:200px solid transparent;
+        border-right:200px solid transparent;
+        margin-left: 310px;
+        transform: translateY(-240px);
+      }
+      #circle{
+        border-radius: 50%;
+        background-color: orangered;
+        height: 80px;
+        width: 80px;
+        margin-left: 210px;
+        transform: translateY(-320px);
+      }
+      
+      #quote1{
+        margin-top: -550px;
+        color: red;
+        
+        margin-left: 1000px;
+        height: 60px;
+        font-size: 50px;
+      
+      }
+      #quote2{
+        margin-top: 50px;
+        color: blue;
+        margin-left: 1000px;
+        height: 60px;
+        font-size: 50px;
+      }
+      #quote3{
+        margin-top: 50px;
+        color: chartreuse;
+        margin-left: 1000px;
+        height: 60px;
+        font-size: 50px;
+      }
+      .third{
+        background-color:brown;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        height: 1010px;
+        margin-top: -10px;
+    
+      }
+      .about{
+        color:white;
+        font-size: 30px;
+        font-weight: 500;
+        margin-left: -50px;
+
+      }
+      .about h1:before{
+        display: block;
+        background-color:white;
+        width: 350px;
+        height: 2px;
+        content: "";
+        position: absolute;
+        left: -400px;
+        z-index: -1;
+
+        top:50%;
+        
+
+      }
+      .about h1:after{
+        display: block;
+        background-color:white;
+        width: 350px;
+        height: 2px;
+        content: "";
+        position: absolute;
+        right: 800px;
+        z-index: -1;
+
+        top:50%;
+
+      }
+      img{
+        border-radius: 50%;
+        border: 5px solid white;
+        width: 150px;
+        height:150px;
+        margin-left: 650px;
+        margin-top: 100px;
+      }
+      .geeks h6{
+        margin-left: 630px;
+        font-weight: 600;
+        margin-top: 50px;
+        font-size: 18px;
+        color:red;
+
+
+      }
+      .geeks h1{
+        margin-left: -190px;
+        margin-top: 50px;
+        font-weight: 600;
+        font-size: 18px;
+        color: yellowgreen;
+      }
+      .geeks h2{
+        margin-left: -175px;
+        margin-top: 65px;
+        font-weight: 600;
+        font-size: 18px;
+        color: skyblue;
+
+      }
+      .geeks h3{
+        margin-left: 630px;
+        margin-top: 45px;
+        font-weight: 50;
+        font-size: 18px;
+        color:palevioletred;
+      }
+      .geeks h4{
+        margin-left: -80px;
+        margin-top: 55px;
+        font-weight: 50;
+        font-size: 18px;
+        color:orangered;
+      }
+      .geeks h5{
+        margin-left: 600px;
+        margin-top: 55px;
+        font-weight: 50;
+        font-size: 18px;
+        color:greenyellow;
+      }
+      .fa-person{
+        color:white;
+        transform: translateY(-170px);
+
+        margin-left: 610px;
+      }
+      .cap .fa-graduation-cap{
+        color:rgb(0, 0, 255);
+        margin-left: 565px;
+        transform: translateY(-114px);
+  
+      }
+      .fa-slack{
+        color: gold;
+        margin-left:570px;
+        transform: translateY(-55px);
+      }
+      .fa-github{
+        margin-left: 500px;
+        color: white;
+        margin-top:15px;
+
+      }
+      .fa-linkedin{
+        margin-left: 50px;
+
+        color: white;
+      }
+      .fa-instagram{
+        margin-left: 50px;
+        margin-top: -33px;
+        color: white;
+      }
+      .fa-facebook{
+        margin-left: 50px;
+        margin-top: -33px;
+        color: white;
+      }
+      .fa-envelope{
+        margin-left: 50px;
+        margin-top: -33px;
+        color: white;
+      }
+      .four{
+        margin: 0;
+        padding: 0;
+        margin-top: -70px;
+        width: 100%;
+        height:500px;
+        background-color: whitesmoke;
+      }
+      .TimeLine{
+        margin-left: 670px;
+        transform: translateY(40px);
+        font-size: 30px;
+        font-family: monospace;
+
+      }
+      
+      .four h3{
+        margin-left:605px;
+        transform: translateY(120px);
+        font-size: 20px;
+      }
+      .four h5{
+        margin-left: 605px;
+        transform:translateY(310px);
+        font-size: 20px;
+      }
+      
+      
+      
+      .circle1{
+        border-radius: 50%;
+        border: 5px solid red;
+        width: 20px;
+        height:20px;
+        margin-left: 540px;
+        margin-top: 100px;
+        color: red;
+      }
+      .circle2{
+        border-radius: 50%;
+        border: 5px solid red;
+        width: 20px;
+        height:20px;
+        margin-left: 542px;
+        margin-top: 170px;
+        color: red;
+
+      }
+      .line5{
+        color:red;
+        height: 100px;
+        width: 100px;
+        margin-left: 548px;
+        margin-top: -171px;
+
+      }
+      .line6{
+        color:red;
+        height: 100px;
+        width: 100px;
+        margin-left: 548px;
+        margin-top: -80px;
+
+      }
+      .line7{
+        color:red;
+        height: 100px;
+        width: 100px;
+        margin-left: 548px;
+        margin-top: -78px;
+
+      }
+      .line8{
+        color:red;
+        height: 100px;
+        width: 100px;
+        margin-left: 548px;
+        margin-top: -77px;
+
+
+      }
+      .line9{
+        color:red;
+        height: 100px;
+        width: 100px;
+        margin-left: 548px;
+        margin-top: -76px;
+
+      }
+      .line10{
+        color:red;
+        height: 100px;
+        width: 100px;
+        margin-left: 548px;
+        margin-top: -75px;
+
+      }
+      .card1{
+
+        display: grid;
+        grid-template-columns: 300px;
+        grid-template-rows: 210px 210px 80px;
+        grid-template-areas: "image" "text" "stats";
+        font-family: roboto;
+        border-radius: 18px;
+        background: white;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0);
+        text-align: center;
+        transition: 0.5s ease;
+        cursor: pointer;
+        outline: 5px solid orangered;
+        transform: translateX(-50px);
+        margin-left: -450px;
+        margin-top: -600px;
+      }
+      .card-image1
+      {
+        grid-area: image;
+        background: url("Calculator-Fin-1024x683.jpg");
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        background-size: cover;
+        transform: translateX(-575px);
+        height: 80px;
+      }
+      .card-text1
+      {
+        grid-area: text;
+        margin: 25px;
+      }
+      .card-text1 a{
+        font-size: 30px;
+        color: orangered;
+        margin-top: 30px;
+      }
+      .card-text1 .date
+      {
+        color: rgb(255,7,110);
+        font-size: 13px;
+
+      }
+      .card-text1 p
+      {
+        color: grey;
+        font-size: 15px;
+      }
+      .card-text1 h2
+      {
+        margin-top: 70px;
+        color: orangered;
+
+        font-size: 28px;
+        transform: translateX(0px);
+      }
+      .card1-stats
+      {
+        grid-area: stats;
+      }
+      .card1:hover
+      {
+        transform: scale(1.2);
+        box-shadow: 5px 5px 15px rgba(0,0,0,0);
+      }
+      .card1 a
+      {
+        overflow:hidden;
+        text-decoration: none;
+
+        color:orangered;
+        background-color:white;
+  
+        font-family:fantasy;
+        margin-top: 40px;
+    
+      }
+      .next
+      {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 1500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  
+        overflow: hidden;
+        margin-top: -50px;
+        
+        background-color:yellowgreen;
+
+      }
+      .name{
+        margin-top: -20px;
+        color: white;
+        font-size: 60px;
+        margin-left: 600px;
+
+        transform: translateY(24px);
+      }
+      .card2{
+
+        display: grid;
+        grid-template-columns: 300px;
+        grid-template-rows: 210px 210px 80px;
+        grid-template-areas: "image" "text" "stats";
+        font-family: roboto;
+        border-radius: 18px;
+        background: white;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0);
+        text-align: center;
+        transition: 0.5s ease;
+        cursor: pointer;
+        outline: 5px solid orangered;
+        transform: translateX(50px);
+        margin-top: -597px;
+        margin-left: 100px;
+        
+      }
+      .card-image2
+      {
+        grid-area: image;
+        background: url("todo.png");
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        background-size: cover;
+        transform: translateX(-575px);
+        height: 40px;
+      }
+      .card-text2
+      {
+        grid-area: text;
+        margin: 25px;
+      }
+      .card-text2 a{
+        font-size: 30px;
+        color: orangered;
+        margin-top: 30px;
+      }
+      .card-text2 .date
+      {
+        color: rgb(255,7,110);
+        font-size: 13px;
+
+      }
+      .card-text2 p
+      {
+        color: grey;
+        font-size: 15px;
+      }
+      .card-text2 h2
+      {
+        margin-top: 70px;
+        color: orangered;
+
+        font-size: 28px;
+        transform: translateX(0px);
+      }
+      .card2-stats
+      {
+        grid-area: stats;
+      }
+      .card2:hover
+      {
+        transform: scale(1.2);
+        box-shadow: 5px 5px 15px rgba(0,0,0,0);
+      }
+      .card2 a
+      {
+        overflow:hidden;
+        text-decoration: none;
+
+        color:orangered;
+        background-color:white;
+
+        font-family:fantasy;
+        margin-top: 40px;
+
+      }
+
+
+     
+
+     
+      
+      
+      
+		</style>
+	</head>
+	<body>
+    
+    
+    <h2>HEY,I'M</h2>
+    <h1>AADITYA</h1>
+    <div class="container">
+      <h3><span class="auto-type"></span></h3>
+    </div>
+    <h4>WELCOME TO MY WEBSITE!</h4>
+    <div id="particles-js">
+
+    </div>
+    
+    <script src="particles.js"></script>
+    <script src="app.js"></script>
+    
+    <script>
+      document.getElementById("particles-js").style.color="red";
+    </script>
+    <div id="content">
+      <div id="square1"></div>
+      <div id="square2"></div>
+      <div id="square3"></div>
+      <div id="triangle"></div>
+      <div id="circle"></div>
+      <div id="comma1">"</div>
+      <div id="comma2">"</div>
+      <div id="quote">
+        <div id="quote1">IT'S JUST MYSELF </div>
+        <div id="quote2">TALKING TO MYSELF</div>
+        <div id="quote3">ABOUT MYSELF</div>
+      </div>
+    </div>
+    <div class="third">
+      <div class="about">
+        <h1>About Me</h1>
+      </div>
+      <img src="my second image.jpeg"/>
+      <div class="geeks">
+        <h6>Loves Graphic Designing </h6>
+        <h1>Studies at Motilal Nehru National Institute Of Technology,Prayagraj</h1>
+        <h2>Interested in Web-Development,Open-Source,Anything Tech</h2>
+        <h3>Student,Self-Taught Coder</h3>
+        <h4>Branch Chemical Engineering</h4>
+        <h5>Likes Cricket,Gaming and Coding</h5>
+        <div class="person">
+    
+          <i class="fa-solid fa-person"></i>
+        </div>
+        <div class="cap"> 
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div class="hobby">
+          <i class="fa-brands fa-slack"></i>
+        </div>
+        
+      </div>
+      <div class="icon">
+        <a href="https://github.com/heyimaaditya"><i class="fa-brands fa-github fa-3x"></i></a>
+      
+      
+        <a href="https://www.linkedin.com/in/aaditya-tyagi-14a448223"><i class="fa-brands fa-linkedin fa-3x"></i></a>
+      
+        <a href="https://www.instagram.com/aaditya.tya6i/"><i class="fa-brands fa-instagram fa-3x"></i></a>
+      
+      
+        <a href="https://m.facebook.com/100027301391340/"><i class="fa-brands fa-facebook fa-3x"></i></a>
+        <a href="mailto:aadityatyagi900@gmail.com"><i class="fa-solid fa-envelope fa-3x"></i></a>
+      </div>
+    </div>
+    <div class="four">
+      <div class="TimeLine">TimeLine</div>
+      
+      <h3>R.P.S,Nanauta,Saharanpur</h3>
+      
+      
+      <h5>Motilal Nehru National Institute Of Technology,Prayagraj</h5>
+      <div class="circle1"></div>
+      <div class="circle2"></div>
+      <div class="line5">|</div>
+      <div class="line6">|</div>
+      <div class="line7">|</div>
+      <div class="line8">|</div>
+      <div class="line9">|</div>
+      <div class="line10">|</div>
+    </div>
+    <div class="name">PROJECTS</div>
+    <div class="next">
+      
+      <div class="card1">
+        <div class="card-image1"><img src="Calculator-Fin-1024x683.jpg"></div>
+        <div class="card-text1">
+          
+          <h2>CALCULATOR</h2>
+          <p>Made a simple calculator app with help of Html,CSS and Javascript</p>
+          <a href="https://github.com/heyimaaditya/calculator">#</a>
+        </div>
+      </div>
+      <div class="card2">
+        <div class="card-image2"><img src="istockphoto-944990946-612x612.jpg"></div>
+        <div class="card-text2">
+            
+          <h2>TO-DO LIST</h2>
+          <p>To-Do List app made with HTML, CSS, Javascript. makes the user's day organize and efficient.</p>
+          <a href="https://github.com/heyimaaditya/SIMPLE-TO-DO-LIST">#</a>
+        </div>
+      </div>    
+    </div>
+    
+    
+
+    
+    
+    
+    <script src="https://unpkg.com/typed.js@2.0.132/dist/typed.umd.js"></script>
+    <script>
+      var typed=new Typed(".auto-type",{
+        strings:["STUDENT","DEVELOPER","TECH ENTHUIAST"],
+        typeSpeed:150,
+        backSpeed:150,
+        loop:true
+      });
+    </script>
+		<script type="module">
+			import * as THREE from 'https://unpkg.com/three/build/three.module.js';
+      const scene=new THREE.Scene();
+      const camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
+      const renderer=new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth,window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+      const geometry=new THREE.TorusGeometry(10,3,16,100);
+      const material=new THREE.MeshBasicMaterial({color:0xffa500,wireframe:true,wireframeLinewidth:2});
+      const torus=new THREE.Mesh(geometry,material);
+      scene.add(torus);
+      camera.position.z=40;
+      function animate(){
+        requestAnimationFrame(animate);
+        torus.rotation.x+=0.02;
+        torus.rotation.y+=0.01;
+        renderer.render(scene,camera);
+
+      }
+      animate();
+			
+		</script>
+    
+
+    
+    
+    
+	</body>
+</html>
